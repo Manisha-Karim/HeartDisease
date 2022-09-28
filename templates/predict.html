@@ -1,0 +1,151 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict</title>
+</head>
+<style>
+ @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+    body
+    { background-image:url({% static "10830.jpg"%});
+      background-size:800px 600px;
+      background-repeat:no-repeat;
+      background-position: right bottom;
+      background-attachment: fixed;
+      font-family:'Roboto';
+
+    }
+
+    h1{
+    font-size: 3em;
+    text-align: center;
+    }
+
+    .main{
+    margin: 0 15%;
+    }
+
+    input{
+    border-radius: 5px;
+    font-family: 'Roboto';
+    color: #000;
+    font-size: 10px;
+    padding: 5px 15px 5px 15px;
+    }
+
+    #predict{
+    padding: 25px;
+    margin: 3% 0;
+
+	box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+	background-color:#79bbff;
+	border-radius:3px;
+	border:1px solid #84bbf3;
+	display:inline-block;
+	cursor:pointer;
+	color:#000;
+	font-family:roboto;
+	font-size:16px;
+	font-weight:bold;
+	padding:9px 47px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #528ecc;
+}
+#predict:hover {
+	background-color:#378de5;
+}
+#predict:active {
+	position:relative;
+	top:1px;
+}
+
+    }
+</style>
+<body>
+
+  <div class = 'main'>
+      <h1>Please enter the following</h1>
+
+      <form action="result">
+
+          <div class ="values">
+          <h3>Age</h3>
+          <input id="age" name="age" required="required">
+                 </div>
+
+           <div>
+          <h3>Gender</h3>
+               <select name="sex" id="sex" required="required">
+                <option value="1">Male</option>
+                <option value="0">Female</option>
+               </select>
+           </div>
+
+
+          <div>
+              <h3>At rest Blood Pressure</h3>
+              <input id="atRestBps" name="atRestBps" required="required">
+          </div>
+
+          <div>
+              <h3>Cholesterol</h3>
+              <input id="cholestrol" name="cholestrol" required="required">
+          </div>
+
+
+          <div>
+              <h3>Maximum Heart Rate</h3>
+              <input id="maxHeartRate" name="maxHeartRate" required="required">
+          </div>
+
+
+          <div>
+              <h3>ST wave depression</h3>
+              <input id="oldpeak" name="oldpeak" required="required">
+          </div>
+
+           <div>
+          <h3>Type of Chest Pain</h3>
+               <select name="chestPainType" id="chestPainType" required="required">
+                <option value="1">Typical Chest Pain</option>
+                <option value="2">Atypical Chest Pain</option>
+                <option value="3">Non-anginal Chest Pain</option>
+                <option value="4">Asymptomatic Chest Pain</option>
+               </select>
+           </div>
+
+          <div>
+          <h3>Exercise Induced Angina</h3>
+               <select name="excerciseInducedangina" id="excerciseInducedangina" required="required">
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+               </select>
+           </div>
+
+           <div>
+          <h3>ST wave depression slope</h3>
+               <select name="slope" id="slope" required="required">
+                <option value="0">Upsloping</option>
+                <option value="2">Downsloping</option>
+                   <option value="3">Flat</option>
+               </select>
+           </div>
+
+          <div>
+
+              <input id="predict" type = "submit" value ="PREDICT">
+
+          </div>
+
+      </form>
+
+      <div>
+          <h2>{{result2}}</h2>
+      </div>
+  </div>
+
+</body>
+</html>
