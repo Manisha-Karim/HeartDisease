@@ -9,15 +9,90 @@
 </head>
 <style>
  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+ @import url('https://fonts.googleapis.com/css?family=Ubuntu+Mono');
     body
-    { background-image:url({% static "10830.jpg"%});
-      background-size:800px 600px;
-      background-repeat:no-repeat;
-      background-position: right bottom;
-      background-attachment: fixed;
-      font-family:'Roboto';
+    { font-family:'Roboto';
 
     }
+    .css-input {
+
+      display: inline-block;
+       font-weight: bold;
+        width: 25%;
+        text-align: center;
+        cursor: pointer;
+        padding: 15px 5px;
+        outline: 0;
+        border: 7px dashed #000000;
+        border-radius: 12px;
+        background: #fff0a3;
+        color: #171515;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        font-size: 1em;
+
+}
+ .css-input:focus {
+     outline:none;
+}
+
+    .select {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 15px;
+    width: 100%;
+
+}    .select select {
+        font-family: "Ubuntu Mono", monospace;
+        font-weight: bold;
+        font-variant: small-caps;
+        text-align: center;
+        font-size: 29px;
+        color: rgba(0, 0, 0, 0.92);
+
+
+        display: inline-block;
+        width: 28%;
+        cursor: pointer;
+        padding: 6px 10px;
+        outline: 0;
+        border: 7px dashed #000000;
+        border-radius: 12px;
+        background: #fff0a3;
+        color: #171515;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+    }
+        .select select::-ms-expand {
+            display: none;
+        }
+        .select select:hover,
+        .select select:focus {
+            color: #000000;
+            background: #cccccc;
+        }
+        .select select:disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+.select_arrow {
+    position: absolute;
+    top: 16px;
+    right: 15px;
+    pointer-events: none;
+    border-style: solid;
+    border-width: 8px 5px 0px 5px;
+    border-color: #7b7b7b transparent transparent transparent;
+}
+.select select:hover ~ .select_arrow,
+.select select:focus ~ .select_arrow {
+    border-top-color: #000000;
+}
+.select select:disabled ~ .select_arrow {
+    border-top-color: #cccccc;
+}
 
     h1{
     font-size: 3em;
@@ -37,46 +112,72 @@
     }
 
     #predict{
-    padding: 25px;
-    margin: 3% 0;
+     background: #ad5a2d;;
 
-	box-shadow:inset 0px 1px 0px 0px #bbdaf7;
-	background-color:#79bbff;
-	border-radius:3px;
-	border:1px solid #84bbf3;
-	display:inline-block;
-	cursor:pointer;
-	color:#000;
-	font-family:roboto;
-	font-size:16px;
-	font-weight:bold;
-	padding:9px 47px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #528ecc;
+   font-family: "Ubuntu Mono", monospace;
+        font-weight: bold;
+        font-variant: small-caps;
+        text-align: center;
+        font-size: 29px;
+  border: 7px dashed #000000;
+  border-radius: 12px;
+  width: 35%;
+        cursor: pointer;
+        padding: 8px 8px;
+
+
+
 }
-#predict:hover {
-	background-color:#378de5;
+h3{font-family: Impact, Charcoal, sans-serif;
+font-size: 32px;
+letter-spacing: 0.8px;
+word-spacing: 0.8px;
+color: #000000;
+font-weight: normal;
+text-decoration: underline solid rgb(68, 68, 68);
+font-style: normal;
+font-variant: small-caps;
+text-transform: capitalize;
+
 }
+
 #predict:active {
 	position:relative;
 	top:1px;
 }
+.cssFont_1 {
+font-family: Impact;
+font-size: 50px;
+letter-spacing: 10px;
+word-spacing: 10px;
+color: #121212;
+font-weight: bold;
+text-decoration: none;
+font-style: normal;
+font-variant: small-caps;
+text-transform: capitalize;
+}
+.container{
+  padding: 70px 0;
 
-    }
+  text-align: center;
+}
+
 </style>
 <body>
+<div class="container">
 
-  <div class = 'main'>
-      <h1>Please enter the following</h1>
+
+  <div class="cssFont_1">please enter the following</div>
 
       <form action="result">
 
           <div class ="values">
           <h3>Age</h3>
-          <input id="age" name="age" required="required">
+          <input id="age" name="age" class="css-input" type="number" required="required">
                  </div>
 
-           <div>
+           <div class="select">
           <h3>Gender</h3>
                <select name="sex" id="sex" required="required">
                 <option value="1">Male</option>
@@ -87,27 +188,27 @@
 
           <div>
               <h3>At rest Blood Pressure</h3>
-              <input id="atRestBps" name="atRestBps" required="required">
+              <input id="atRestBps"class="css-input" name="atRestBps" type="number" required="required">
           </div>
 
           <div>
               <h3>Cholesterol</h3>
-              <input id="cholestrol" name="cholestrol" required="required">
+              <input id="cholestrol" name="cholestrol" class="css-input" type="number" required="required">
           </div>
 
 
           <div>
               <h3>Maximum Heart Rate</h3>
-              <input id="maxHeartRate" name="maxHeartRate" required="required">
+              <input id="maxHeartRate" class="css-input" name="maxHeartRate" type="number" required="required">
           </div>
 
 
           <div>
               <h3>ST wave depression</h3>
-              <input id="oldpeak" name="oldpeak" required="required">
+              <input id="oldpeak" class="css-input" name="oldpeak" type="number" required="required">
           </div>
 
-           <div>
+           <div class="select">
           <h3>Type of Chest Pain</h3>
                <select name="chestPainType" id="chestPainType" required="required">
                 <option value="1">Typical Chest Pain</option>
@@ -117,7 +218,7 @@
                </select>
            </div>
 
-          <div>
+          <div class="select">
           <h3>Exercise Induced Angina</h3>
                <select name="excerciseInducedangina" id="excerciseInducedangina" required="required">
                 <option value="1">Yes</option>
@@ -125,13 +226,13 @@
                </select>
            </div>
 
-           <div>
+           <div class="select">
           <h3>ST wave depression slope</h3>
                <select name="slope" id="slope" required="required">
                 <option value="0">Upsloping</option>
                 <option value="2">Downsloping</option>
                    <option value="3">Flat</option>
-               </select>
+               </select><br><br>
            </div>
 
           <div>
@@ -141,10 +242,10 @@
           </div>
 
       </form>
+  </div>
 
-      <div>
-          <h2>{{result2}}</h2>
-      </div>
+
+
   </div>
 
 </body>

@@ -8,5 +8,7 @@ urlpatterns = [
     path('', views.home),
     path('predict/',views.predict),
     path('predict/result', views.results),
+    path('predict/result/predictions.html', views.prediction),
+
 
 ]

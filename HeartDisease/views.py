@@ -33,4 +33,7 @@ def results(request):
     else:
         result1 = "Congratulations, you do not have heart disease"
 
-    return render(request,'predict.html', {"result2":result1})
+    return render(request,'prediction.html', {"result2":result1})
+
+def prediction(request):
+    return render(request, 'prediction.html')
